@@ -1,5 +1,5 @@
-#ifndef GradeSheet.h
-#define GradeSheet.h
+#ifndef STUDENTCALC_H
+#define STUDENTCALC_H
 
 #include <string>
 #include <vector>
@@ -13,9 +13,13 @@ class Course {
         string letterGrade;
 
     public:
-    // Constructor
-       Course(string name, int credits, string grade);
-    // Member functions
+    // default onstructor
+    Course();
+
+    // Parametrized constructor
+    Course(string name, int credits, string grade);
+
+    // Member functions (getters; const = they do not modify the object)
        string getCourseName() const;
        int getCreditHours() const;
        string getLetterGrade() const;
@@ -24,12 +28,14 @@ class Course {
 };
 class  Student {
     private:
-        // Member variables
+        // data members
         string studentName;
-        vector<Course> courses;
+        vector<Course> courses; // composition: a student has a vector of courses
+
     public:
-    // Constructor
+        // Parametrized onstructor
         Student(string name);
+
         // Member functions
         void addCourse(const Course& course);
         
