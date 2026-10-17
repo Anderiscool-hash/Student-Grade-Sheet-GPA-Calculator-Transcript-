@@ -9,19 +9,19 @@ using namespace std;
 // ======== Course ========
 
 Course::Course() {
-	coursename = "Unknown";
+	courseName = "Unknown";
 	creditHours = 0;
 	letterGrade = "F";
 }
 
 Course::Course(string name, int credits, string grade) {
-	coursename = name;
+	courseName = name;
 	creditHours = credits;
 	letterGrade = grade;
 }
 
 string Course::getCourseName() const {
-	return coursename;
+	return courseName;
 }
 
 int Course::getCreditHours() const {
@@ -90,4 +90,39 @@ string Student::getStanding() const {
 	if (gpa >= 3.70) return "Dean's List";
 	else if (gpa >= 2.0) return "Good Standing";
 	else return "Probation";
+}
+void Student::printTranscript() const {
+	// title
+	cout << "\n";
+	cout << setfill('=') << setw(19) << "" << "Student Grade Report" << setw(19) << "" << endl;
+	cout << setfill(' ');	// restore normal spacing
+	cout << "Student: " << studentName << endl << endl;
+
+
+	// column headers
+	cout << left << setw(28) << "Course" << right << setw(8) << "Credits" << setw(10) << "GradePts" << setw(10) << "TotalPts" << endl;
+
+	cout << setfill('-') << setw(56) << "" << endl;
+	cout << setfill(' ');
+
+	// fixed makes precision = number of decimal places
+	cout << fixed << setprecision(2);
+
+	// one row for each course
+	for (size_t i = 0; i < courses.size(); i++) {
+	cout << left << setw(28) << courses[i].getCourseName()
+		 << right << setw(8) << courses[i].getCreditHours()
+		 << setw(10) << courses[i].getGradePoint()
+		 << setw(10) << courses[i].getTotalGradePoints() << endl;
+	}
+	cout << setfill('-') << setw(56) << "" << endl;
+	cout << setfill(' ');
+
+	// totals
+	cout << left << setw(28) << "Total Credits:" << right << setw(8) << getTotalCredits() << endl;
+	cout << left << setw(28) << "Total Points:" << right << setw(10) << getTotalPoints() << endl;
+	cout << left << setw(28) << "Semester GPA:" << right << setw(10) << calculateGPA() << endl;
+	cout << left << setw(28) << "Standing:" << right << setw(15) << getStanding() << endl;
+ 
+	cout << setfill('=') << setw(60) << "" << endl;
 }

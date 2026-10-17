@@ -54,7 +54,7 @@ int main() {
         getline(cin, courseName);
 
         // credits must be a whole number >= 0
-        cout << "Enter credit hourse: ";
+        cout << "Enter credit hours: ";
         cin >> credits;
         while (cin.fail() || credits < 0) {
             cin.clear();                // reset the error flag
@@ -84,7 +84,14 @@ int main() {
 
 
 
-/* Ander Ayala reflection:
+/* 
+Ander Ayala's reflection:
 (a) Something that was tricky was understanding the classes and how to implement them correctly. I had to make sure that the member functions were properly defined and that the data members were being accessed correctly.
-(b) Something i learnt was how to create a class because i couldnt figure out how to do it at first but after some research and practice i was able to create a class and implement it correctly.
+(b) Something I learnt was how to create a class because I couldnt figure out how to do it at first but after some research and practice I was able to create a class and implement it correctly.
+
+Samiul Islam's reflection:
+The specific things I struggled with were choosing the column widths for the transcript table and setting up the constructors. I fixed them by applying what I learned in class about streams and constructors: the course name 
+column is 28 wide because names like “CSCI 272” need room, and the numbers use right so the decimals line up. The variables and functions are declared in studentcalc.h, and I defined them in studentcalc.cpp using Course:: and Student::. 
+In main.cpp, a for loop asks for each course’s name, credits and grade once for every course the user entered, and while loops keep re-asking until the input is valid. One thing I understand now that I didn’t before is that a function declared 
+in the .h file doesn’t work until it is defined in the .cpp file with the class name in front, like Student::calculateGPA().
 */

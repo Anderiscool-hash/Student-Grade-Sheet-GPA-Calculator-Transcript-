@@ -39,7 +39,7 @@ class  Student {
         // Member functions
         void addCourse(const Course& course);
         
-        int getTotalcredits() const;
+        int getTotalCredits() const;
         double getTotalPoints() const;
         double calculateGPA() const;
     
